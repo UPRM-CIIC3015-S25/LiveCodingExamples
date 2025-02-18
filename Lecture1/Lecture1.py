@@ -17,7 +17,7 @@ import math
 # Use input() to prompt the user for the temperature in Celsius:
 # C = int(input("Enter a temperature in Celsius: "))
 # F = (C * (9/5)) + 32
-# print(f"{C} degrees Celsium correspond to {F} degrees Fahrenheit")
+# print(f"{C} degrees Celsius correspond to {F} degrees Fahrenheit")
 
 
 # Perimeter of a rectangle
