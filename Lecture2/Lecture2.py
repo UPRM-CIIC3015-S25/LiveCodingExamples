@@ -1,3 +1,7 @@
+# UPRM CIIC 3015 Spring 2025
+# Lecture 2: Decisions and Boolean Logic
+# Live Coding Examples
+
 # Use an if statement to calculate your final CIIC 3015
 # letter grade given your final numeric score
 numeric_score = 75.23

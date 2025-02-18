@@ -1,8 +1,8 @@
 import math
 
-# CIIC 3015 Intro to Programming
-# Topic: Expressions and Variables
-# Lecture 1 Live Coding Examples
+# UPRM CIIC 3015 Spring 2025
+# Lecture 1: Expressions and Variables
+# Live Coding Examples
 
 # Some common calculations used in engineering and live
 
