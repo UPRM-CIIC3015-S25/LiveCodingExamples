@@ -10,7 +10,10 @@
 
 
 
-#Function to decrement a timer until it reaches 0
+#Function to decrement a timer every second until it reaches 0
+
+
+
 
 
 
