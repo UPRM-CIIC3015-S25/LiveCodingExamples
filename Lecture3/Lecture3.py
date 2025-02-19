@@ -29,7 +29,7 @@ print(fahrenheit_to_celsius(60))
 # Celsius to Kelvin Function
 # K = C + 273.15
 def celsius_to_kelvin(celsius):
-    return celsius + 273.15s
+    return celsius + 273.15
 
 def fahrenheit_to_kelvin(fahrenheit):
     return celsius_to_kelvin(fahrenheit_to_celsius(fahrenheit))
