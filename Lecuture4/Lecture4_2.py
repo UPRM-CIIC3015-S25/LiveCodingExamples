@@ -12,13 +12,6 @@ import random
 
 
 
-
-# Create a function that counts down from any number to 0
-# and prints the value.
-
-
-
-
 # Create a function that calculates the factorial of a number.
 
 
