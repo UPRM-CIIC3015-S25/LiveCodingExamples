@@ -17,53 +17,54 @@ songs_columns_names = ["UID", "Title", "Author", "Year", "Genre"]
 # Returns a dictionary for a single row mapping column name to value
 def build_row_dict(row, column_names):
     row_dict = {}
-
-
-
+    for i in range(len(column_names)):
+        key = column_names[i]
+        value = row[i]
+        row_dict[key] = value
     return row_dict
 
-print(build_row_dict(songs_db_list[0], songs_columns_names))
-
+print(build_row_dict(songs_db_list[3], songs_columns_names))
+#
 # Returns a dictionary for entire db mapping unique id to row dictionary
 def build_db_dict(column_names, uid_column_name, db_list):
     db_dict = {}
-
-
-
-
+    for row in db_list:
+        row_dict = build_row_dict(row, column_names)
+        key = uid_column_name
+        value = row_dict
+        db_dict[key] = value
     return db_dict
 
-
 print(build_db_dict(songs_columns_names, "UID", songs_db_list))
-
-
-# Returns a dictionary mapping each distinct column value for the given column name
-# to a set of unique ids of rows with than value in that column
-# This is what in database systems is called an INDEX
-def build_db_index(db, column_name, uid_name):
-    index = {}
-
-
-
-
-
-    return index
-
-songs_db_dict = build_db_dict(songs_columns_names, "UID", songs_db_list)
-songs_year_index = build_db_index(songs_db_dict, "Year", "UID")
-
-# Returns a set with all song titles in the given year
-def song_titles_by_year(db_dict, year_index, year):
-    result = set()
-
-
-
-
-    return result
-
-
-print(f"Song titles in 2019 {song_titles_by_year(songs_db_dict, songs_year_index, 2019)}")
-print(f"Song titles in 2018 {song_titles_by_year(songs_db_dict, songs_year_index, 2018)}")
-
+#
+#
+# # Returns a dictionary mapping each distinct column value for the given column name
+# # to a set of unique ids of rows with than value in that column
+# # This is what in database systems is called an INDEX
+# def build_db_index(db, column_name, uid_name):
+#     index = {}
+#
+#
+#
+#
+#
+#     return index
+#
+# songs_db_dict = build_db_dict(songs_columns_names, "UID", songs_db_list)
+# songs_year_index = build_db_index(songs_db_dict, "Year", "UID")
+#
+# # Returns a set with all song titles in the given year
+# def song_titles_by_year(db_dict, year_index, year):
+#     result = set()
+#
+#
+#
+#
+#     return result
+#
+#
+# print(f"Song titles in 2019 {song_titles_by_year(songs_db_dict, songs_year_index, 2019)}")
+# print(f"Song titles in 2018 {song_titles_by_year(songs_db_dict, songs_year_index, 2018)}")
+#
 
 print("Done")
