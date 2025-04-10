@@ -62,6 +62,33 @@ print(f"Reverse of {"b"} is: {reverse_recursive("b")}")
 
 #Return a list with all permutations of a string
 def permutations(w):
-    pass
+    if len(w) <= 1:
+        return [w]
+    else:
+        result = []
+        for i in range(len(w)):
+            letter = w[i]
+            shorter_w = w[0:i] + w[i+1:]
+            sub_perms = permutations(shorter_w)
+            for sub_word in sub_perms:
+                long_word = letter + sub_word
+                result.append(long_word)
+        return result
 
 print(f"Permutations of {'eat'} are: {permutations('eat')}")
+
+print(f"Permutations of {'eats'} are: {permutations('eats')}")
+print(f"Permutations of {'bienve'} are: {permutations('bienve')}")
+
+
+def base_convert(n,b):
+    digits = '0123456789ABCDF'
+    if n < b:
+        return digits[n]
+    else:
+        return base_convert(n//b, b) + digits[n%b]
+
+print(f"Number {57} in base {16} is {base_convert(57,16)}")
+print(f"Number {57} in base {3} is {base_convert(57,3)}")
+print(f"Number {57} in base {2} is {base_convert(57,2)}")
+
