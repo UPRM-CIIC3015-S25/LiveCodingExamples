@@ -10,9 +10,10 @@ def remove_all(l, key):
     if len(l) == 0:
         return []
     elif l[0] == key:
-        return remove_all(l[1:], key)
-    else:
-        return [l[0]] + remove_all(l[1:], key)
+        return remove_all(l[1:],key)
+    else: # Must be true that l[0] != key
+        return [l[0]] + remove_all(l[1:],key)
+
 
 print(f"Removing zeros from {[1,2,3,0,5,6,0]} yields {remove_all([1,2,3,0,5,6,0],0)}")
 
@@ -21,11 +22,13 @@ def remove_k(l, key, k):
     if len(l) == 0 or k == 0:
         return l
     elif l[0] == key:
-        return remove_k(l[1:], key, k-1)
+        return remove_k(l[1:],key,k-1)
     else:
         return [l[0]] + remove_k(l[1:], key, k)
 
+
 print(f"Removing 2 zeros from {[1,0,3,0,5,6,0]} yields {remove_k([1,0,3,0,5,6,0],0, 2)}")
+print(f"Removing 1000 zeros from {[1,0,3,0,5,6,0]} yields {remove_k([1,0,3,0,5,6,0],0, 1000)}")
 
 # Replace all occurrences of a key within a list
 def replace_all(l, key, sub):
@@ -43,7 +46,7 @@ print(f"Replacing all zeros for -1 in  {[1,0,3,0,5,6,0]} yields {replace_all([1,
 # Replace first k Occurrences of a key within a list
 # Replace all occurrences of a key within a list
 def replace_k(l, key, sub, k):
-    if len(l) == 0 or k==0:
+    if len(l) == 0 or k == 0:
         return l
     elif l[0] == key:
         return [sub] + replace_k(l[1:],key,sub,k-1)
