@@ -6,11 +6,19 @@
 
 # Generate list of integers from "first" to "last" recursively
 def my_range(first, last):
-    pass
+    if first == last:
+        return [first]
+    else:
+        return [first] + my_range(first+1, last)
 
 # Version 2: More efficient
 def my_range2(first, last):
-    pass
+    if first == last:
+        return [first]
+    else:
+        l = my_range2(first, last-1)
+        l.append(last)
+        return l
 
 
 print(f"Numbers from {0} to {10} are: {my_range2(0,10)}")
@@ -18,14 +26,20 @@ print(f"Numbers from {0} to {10} are: {my_range2(0,10)}")
 
 # Calculate the sum of the numbers in a list recursively
 def sum_list(l):
-    pass
+    if len(l) == 0:
+        return 0
+    else:
+        return l[0] + sum_list(l[1:])
 
 print(f"Sum of numbers in [1,2,3,4,5] is: {sum_list([1,2,3,4,5])}")
 
 
 # Calculate a to the bth power recursively
 def my_pow(a,b):
-    pass
+    if b == 0:
+        return 1
+    else:
+        return a * my_pow(a,b-1)
 
 print(f"{5} to the {3} power is: {my_pow(5,3)}")
 
@@ -33,7 +47,10 @@ print(f"{5} to the {3} power is: {my_pow(5,3)}")
 
 # Determine if a string is a palindrome recursively
 def is_palindrome(w):
-    pass
+    if len(w) <= 1:
+        return True
+    else:
+        return w[0]==w[-1] and is_palindrome(w[1:-1])
 
 print(f"Word \'{'radar'}\' is a palindrome? {is_palindrome('radar')}")
 print(f"Word \'{'bienve'}\' is a palindrome? {is_palindrome('bienve')}")
@@ -43,7 +60,10 @@ print(f"Word \'{''}\' is a palindrome? {is_palindrome('')}")
 # Find the maximum among a list of numbers
 # Assume the list is not empty
 def max_recursive(l):
-    pass
+    if len(l) == 1:
+        return l[0]
+    else:
+        return max(l[0],max_recursive(l[1:]))
 
 
 print(f"Maximum number in {[1,2,3,4,5]} is {max_recursive([1,2,3,4,5])}")
@@ -53,7 +73,10 @@ print(f"Maximum number in {[5]} is {max_recursive([5])}")
 
 # Reverse a string recursively
 def reverse_recursive(w):
-    pass
+    if len(w) <= 1:
+        return w
+    else:
+        return reverse_recursive(w[1:]) + w[0]
 
 print(f"Reverse of {"bienvenido"} is: {reverse_recursive("bienvenido")}")
 print(f"Reverse of {""} is: {reverse_recursive("")}")
